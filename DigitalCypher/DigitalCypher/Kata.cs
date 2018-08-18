@@ -9,13 +9,14 @@ namespace DigitalCypher
         {
             var len = str.Length;
             var m = n.ToString();
-            var z = new int[m.Length];
+            var nIndex = new int[m.Length];
+            var nCount = 0;
+            var ans = new int[len];
+
             for (int i = 0; i < m.Length; i++)
             {
-                z[i] = Int32.Parse(m.Substring(i, 1));
+                nIndex[i] = Int32.Parse(m.Substring(i, 1));
             }
-            var ans = new int[len];
-            var ts = 0;
 
             var dic = new Dictionary<string, int>();
             for (int i = 97; i <= 122; i++)
@@ -23,22 +24,17 @@ namespace DigitalCypher
 
             for (int i = 0; i < len; i++)
             {
-                if (ts >= m.Length)
-                {
-                    ts = 0;
-                }
+                if (nCount >= m.Length)
+                    nCount = 0;
                 if (i <= m.Length - 1)
-                {
-                    ans[i] = dic[str.Substring(i, 1)] + z[i];
-                }
+                    ans[i] = dic[str.Substring(i, 1)] + nIndex[i];
                 else
                 {
                     var test = str.Substring(i, 1);
-                    ans[i] = dic[str.Substring(i, 1)] + z[ts];
-                    ts++;
+                    ans[i] = dic[str.Substring(i, 1)] + nIndex[nCount];
+                    nCount++;
                 }
             }
-
             return ans;
         }
     }
