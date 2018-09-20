@@ -12,14 +12,14 @@ namespace DigitalCypher.Tests
     public class KataTests
     {
         [TestMethod()]
-        public void EncodeTest()
+        public void scoutAdd1939()
         {
             var except = new int[] {20, 12, 18, 30, 21};
             var actural = Kata.Encode("scout", 1939);
             CollectionAssert.AreEqual(except, actural);
         }
         [TestMethod()]
-        public void EncodeTest2()
+        public void masterpieceAdd1939()
         {
             var except = new int[] { 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8 };
             var actural = Kata.Encode("masterpiece", 1939);
